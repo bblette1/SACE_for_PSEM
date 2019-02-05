@@ -1,4 +1,4 @@
-# Simulate trial data under NETE scenario
+# Simulate trial data under No Early Treatment Effects scenario
 simulate_data <- function(Y_tau_probvector, S_star_probvector_ytau0eq1,
                           S_star_probvector_ytau0eq0, Y_1_probvector,
                           Y_0_probvector, n, ccprob) {
