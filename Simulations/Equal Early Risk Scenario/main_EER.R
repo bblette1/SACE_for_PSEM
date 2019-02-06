@@ -1,4 +1,4 @@
-# Set working directory to "No Early Treatment Effects Scenario" folder
+# Set working directory to "Equal Early Risk Scenario" folder
 rm(list=ls())
 
 nsims <- 2000
