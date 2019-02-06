@@ -1,4 +1,4 @@
-# Functions to analyze data under No Early Treatment Effects scenario
+# Functions to analyze data under Equal Early Risk scenario
 
 # Full cohort function
 analyze_data <- function(data, brange) {
@@ -25,7 +25,7 @@ analyze_data <- function(data, brange) {
   f3 <- function(x) { sum((1 - Y_tau)*Z*(1 - S_star - x)) }
   p_00 <- uniroot(f3, c(0, 1))$root						
   p_10 <- 1 - p_00
-  # p(1, 1) = 0 under NETE scenario
+  # p(1, 1) = 0 under EER scenario
   
   # Estimate identifiable parameters risk_1(0,0) and risk_1(1,0)
   # risk_z(s1, s0) = 
@@ -34,7 +34,7 @@ analyze_data <- function(data, brange) {
   risk_1_00 <- uniroot(f5, c(0, 1))$root				
 
   # Estimate risk_0(0, 0) using SACE method
-  # This is the only partially identifiable term under NETE
+  # This is the only partially identifiable term under EER
   f7 <- function(x) {
 	  risk_0_10 <- 1 / ( 1 + exp(min(brange))*(1 - x) / x )
 	  risk_0 - x*p_00 - risk_0_10*p_10
@@ -98,7 +98,7 @@ analyze_data_cc <- function(data, brange) {
   f3 <- function(x) { sum((1 - Y_tau)*Z*(1 - S_star - x)*W) }
   p_00 <- uniroot(f3, c(0, 1))$root						
   p_10 <- 1 - p_00
-  # p(1, 1) = 0 under NETE scenario
+  # p(1, 1) = 0 under EER scenario
   
   # Estimate identifiable parameters risk_1(0, 0) and risk_1(1, 0)
   # risk_z(s1, s0) = 
@@ -107,7 +107,7 @@ analyze_data_cc <- function(data, brange) {
   risk_1_00 <- uniroot(f5, c(0, 1))$root				
 
   # Estimate risk_0(0, 0) using SACE method
-  # This is the only partially identifiable term under NETE
+  # This is the only partially identifiable term under EER
   f7 <- function(x) {
 	  risk_0_10 <- 1 / ( 1 + exp(min(brange))*(1 - x)/x )
 	  risk_0 - x*p_00 - risk_0_10*p_10

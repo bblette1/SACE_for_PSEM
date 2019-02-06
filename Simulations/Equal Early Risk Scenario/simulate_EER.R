@@ -1,14 +1,16 @@
-# Simulate trial data under No Early Treatment Effects scenario
+# Simulate trial data under Equal Early Risk scenario
 simulate_data <- function(Y_tau_probvector, S_star_probvector_ytau0eq1,
                           S_star_probvector_ytau0eq0, Y_1_probvector,
                           Y_0_probvector, n, ccprob) {
 
+  # Generate Y^tau(1) and Y^tau(0)
 	multi <- rmultinom(1, n, Y_tau_probvector)
 	Y_tau_1 <- c(rep(0, multi[1, 1] + multi[2, 1]),
 	             rep(1, multi[3, 1] + multi[4, 1]))
 	Y_tau_0 <- c(rep(0, multi[1, 1] + multi[3, 1]),
 	             rep(1, multi[2, 1] + multi[4, 1]))
       
+	# Generate S^tau(1) and S^tau(0)
 	multi2 <- rmultinom(1, length(Y_tau_0[Y_tau_0 == 1]),
 	                    S_star_probvector_ytau0eq1)
 	S_star_1 <- rep(0, n)
@@ -25,6 +27,7 @@ simulate_data <- function(Y_tau_probvector, S_star_probvector_ytau0eq1,
 	S_star_0[Y_tau_0 == 0] <- c(rep(0, multi3[1, 1] + multi3[3, 1]),
 	                            rep(1, multi3[2, 1] + multi3[4, 1]))
         
+	# Generate Y(1) and Y(0)
 	Y_1 <- Y_tau_1
 	Y_1[Y_tau_1 == 0 & Y_tau_0 == 0 & S_star_1 == 0 & S_star_0 == 0] <- 
 	  rbinom(length(Y_1[Y_1 == 0 & S_star_1 == 0 & S_star_0 == 0]), 1,

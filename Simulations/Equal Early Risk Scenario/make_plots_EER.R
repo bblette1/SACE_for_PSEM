@@ -2,7 +2,7 @@
 rm(list=ls())
 
 # Set working directory to where results are saved
-# Change names of files loaded to match number of sims run in main_NETE.R
+# Change names of files loaded to match number of sims run in main_EER.R
 
 # Load simulation results
 load("results2000sims.0.1cc.Rdata"); results.0.1cc <- results; rm(results)

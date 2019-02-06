@@ -1,4 +1,4 @@
-# Estimating equation vector for ignorance interval lower bound under NETE
+# Estimating equation vector for ignorance interval lower bound under EER
 # Used for M estimation variance calculation
 
 # Full-cohort estimating equations
