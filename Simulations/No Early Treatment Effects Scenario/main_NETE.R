@@ -8,8 +8,8 @@ library(rootSolve)
 library(numDeriv)
 library(plyr)
 
-source("simulate_B.R")
-source("analyze_B.R")
+source("simulate_NETE.R")
+source("analyze_NETE.R")
 source("low_eefun_B.R")
 source("up_eefun_B.R")
 source("../M Estimation Helper Functions/compute.R")
@@ -85,8 +85,8 @@ for (h in 1:3) {
 	        ad <- analyze_data(data = observed_data, brange=beta0range)
 		      thetahat_low_B <- as.numeric(c(ad[1:4], ad[5], ad[7], ad[9]))
 	  	    thetahat_up_B <-  as.numeric(c(ad[1:4], ad[6], ad[8], ad[10]))
-      		low_fun <- ScenarioB_low_eefun
-      		up_fun <- ScenarioB_up_eefun
+      		low_fun <- low_eefun
+      		up_fun <- up_eefun
       		observed_data_wide <- count(observed_data,
       		                            c('Y', 'Z', 'Y_tau', 'S_star'))
       		observed_data_wide$Group <- 1:nrow(observed_data_wide)
@@ -104,8 +104,8 @@ for (h in 1:3) {
     	  	                               ad[11]))
     	  	thetahat_up_B <-  as.numeric(c(ad[1:4], ad[6], ad[8], ad[10],
     	  	                               ad[11]))
-      		low_fun <- ScenarioB_low_eefun_cc
-      		up_fun <- ScenarioB_up_eefun_cc
+      		low_fun <- low_eefun_cc
+      		up_fun <- up_eefun_cc
       		observed_data_wide <- count(observed_data,
       		                            c('Y', 'Z', 'Y_tau', 'S_star', 'R'))
       		observed_data_wide$Group <- 1:nrow(observed_data_wide)
