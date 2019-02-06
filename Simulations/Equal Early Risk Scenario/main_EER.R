@@ -12,8 +12,8 @@ source("simulate_EER.R")
 source("analyze_EER.R")
 source("low_eefun_EER.R")
 source("up_eefun_EER.R")
-source("../M Estimation Helper Functions/compute.R")
-source("../M Estimation Helper Functions/utilities.R")
+source("../../M Estimation Helper Functions/compute.R")
+source("../../M Estimation Helper Functions/utilities.R")
 
 # Define helper function for Imbens-Manski interval computation
 f_cstar <- function(c, low, up, maxsig) {
