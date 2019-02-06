@@ -5,11 +5,11 @@ Code implementing simulations and application in the manuscript "Post-randomizat
 
 Simulations:
 
-* Run main_NETE.R (or main_NHETE.R)
+* Run main_EER.R (or main_NHER.R)
 
 * Rdata files containing the results will be put in the working directory and named according to the number of sims specified in "nsims <- __"
 
-* Run make_plots_NETE.R (or make_plots_NHETE.R), changing the names of the loaded Rdata files to match the previous step
+* Run make_plots_EER.R (or make_plots_NHER.R), changing the names of the loaded Rdata files to match the previous step
 
 Application:
 
