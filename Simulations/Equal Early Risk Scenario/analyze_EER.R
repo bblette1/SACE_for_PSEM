@@ -1,7 +1,18 @@
-# Functions to analyze data under Equal Early Risk scenario
+##########################################################################
+# analyze_data()
+# Description: Function to analyze data with full cohort sampling under
+# Equal Early Risk assumption set
 
-# Full cohort function
 analyze_data <- function(data, brange) {
+  ########################################################################
+  # Arguments:
+  #      data: data frame containing the following variables
+  #               Z     : indicator of treatment
+  #               Y     : indicator of outcome
+  #               Y_tau : indicator of early outcome
+  #               S_star: intermediate biomarker value
+  #    brange: (2 x 1) vector containing the specified lower and upper 
+  #            bounds of the range for sensitivity parameter beta_0
 
   Z <- data$Z
   Y <- data$Y
@@ -64,10 +75,22 @@ analyze_data <- function(data, brange) {
 }
   
 ##########################################################################
+# analyze_data_cc()
+# Description: Function to analyze data with case-cohort sampling under
+# Equal Early Risk assumption set
 
-# Case-cohort analysis function
 analyze_data_cc <- function(data, brange) {
-
+  ########################################################################
+  # Arguments:
+  #      data: data frame containing the following variables
+  #               Z     : indicator of treatment
+  #               Y     : indicator of outcome
+  #               Y_tau : indicator of early outcome
+  #               S_star: intermediate biomarker value
+  #               R     : indicator of measurement of intermediate biomarker
+  #    brange: (2 x 1) vector containing the specified lower and upper 
+  #            bounds of the range for sensitivity parameter beta_0
+  
   Z <- data$Z
   Y <- data$Y
   Y_tau <- data$Y_tau
