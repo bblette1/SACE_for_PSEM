@@ -1,7 +1,29 @@
-# Simulate trial data under Equal Early Risk scenario
+###########################################################################
+# simulate_data() 
+# Description: Function that simulates trial data under Equal Early Risk
+# assumption set
+
 simulate_data <- function(Y_tau_probvector, S_star_probvector_ytau0eq1,
                           S_star_probvector_ytau0eq0, Y_1_probvector,
                           Y_0_probvector, n, ccprob) {
+  #########################################################################
+  # Arguments                  :
+  #  Y_tau_probvector          : (4 x 1) vector containing 
+  #                              P(Y^tau(1) = a, Y^tau(0) = b) for (a, b) in 
+  #                              {(0, 0), (0, 1), (1, 0), (1, 1)}
+  #  S_star_probvector_ytau0eq1: same input format as above for
+  #                              P(S^tau(1) = a, S^tau(0) = b | Y^tau(0) = 1)
+  #  S_star_probvector_ytau0eq0: same input format as above for
+  #                              P(S^tau(1) = a, S^tau(0) = b | Y^tau(0) = 0)
+  #  Y_1_probvector            : same input format as above for
+  #                              P(Y(1) = 1 | S^tau(1) = a, S^tau(0) = b,
+  #                                           Y^tau(0) = 0, Y^tau(0) = 0)
+  #  Y_0_probvector            : same input format as above for
+  #                              P(Y(0) = 1 | S^tau(1) = a, S^tau(0) = b,
+  #                                           Y^tau(0) = 0, Y^tau(0) = 0)
+  #  n                         : sample size
+  #  ccprob                    : case-cohort sampling probability:
+  #                              P(R = 1 | Y = 0)
 
   # Generate Y^tau(1) and Y^tau(0)
 	multi <- rmultinom(1, n, Y_tau_probvector)
