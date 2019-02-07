@@ -83,6 +83,8 @@ for (h in 1:3) {
         # variance estimation
 	      if (casecohort == 1) {
 	        ad <- analyze_data(data = observed_data, brange=beta0range)
+	        # Specify positions of output vector from analyze_data()
+	        # that correspond to items in estimating equation vector
 		      thetahat_low_B <- as.numeric(c(ad[1:4], ad[5], ad[7], ad[9]))
 	  	    thetahat_up_B <-  as.numeric(c(ad[1:4], ad[6], ad[8], ad[10]))
       		low_fun <- low_eefun
@@ -122,16 +124,14 @@ for (h in 1:3) {
     	                     beta0range = beta0range)
     
     	  A <- apply(simplify2array(Map(`*`, mats$A_i,
-    	                                observed_data_wide$freq)),
-    	             1:2, sum)
+    	                                observed_data_wide$freq)), 1:2, sum)
     	  B <- apply(simplify2array(Map(`*`, mats$B_i,
-    	                                observed_data_wide$freq)),
-    	             1:2, sum)
+    	                                observed_data_wide$freq)), 1:2, sum)
     
     	  Sigma <- solve(A) %*% B %*% t(solve(A))
         
     	  # Extract variance for estimand of interest from sandwich matrix
-      	var_Ignorance_low_B_M <- Sigma[7,7]
+      	var_Ignorance_low_B_M <- Sigma[7, 7]
     
       	# Same process for upper bound
     	  if (min(beta0range) == max(beta0range)) {
@@ -145,13 +145,11 @@ for (h in 1:3) {
     		                     theta = thetahat_up_B, beta0range = beta0range)
     		  
     	  	A <- apply(simplify2array(Map(`*`, mats$A_i,
-    	  	                              observed_data_wide$freq)),
-    	  	           1:2, sum)
+    	  	                              observed_data_wide$freq)), 1:2, sum)
     	  	B <- apply(simplify2array(Map(`*`, mats$B_i,
-    	  	                              observed_data_wide$freq)),
-    	  	           1:2, sum)
+    	  	                              observed_data_wide$freq)), 1:2, sum)
     	  	Sigma <- solve(A) %*% B %*% t(solve(A))
-      	  var_Ignorance_up_B_M <- Sigma[7,7]
+      	  var_Ignorance_up_B_M <- Sigma[7, 7]
     	  } # end of 'else'
     		
     	  results[h, i, j, k, 1] <- as.numeric(ad$II_low)
@@ -172,8 +170,6 @@ for (h in 1:3) {
     	} # end of 'k' loop 
 
     } # end of 'j' loop
-  
-    print(paste(casecohort, h, i))
 
   } # end of 'i' loop
   
