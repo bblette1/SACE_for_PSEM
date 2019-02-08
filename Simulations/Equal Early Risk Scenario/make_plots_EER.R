@@ -19,7 +19,7 @@ varyingprobs1 <- seq(0.7,0.1,by=-0.1)
 varyingprobs2 <- seq(0.1,0.7,by=0.1)
 
 # Function for panel titles in figures
-maketitle <- function(h, i){
+maketitle <- function(h, i) {
 	
   if (h==1 & i==1) title(expression(paste("n=",200,", [",l[0],",",u[0],"]=[0,0]")),cex.main = 0.95)
   if (h==1 & i==2) title(expression( paste("n=",400,", [",l[0],",",u[0],"]=[0,0]")),cex.main = 0.95)
