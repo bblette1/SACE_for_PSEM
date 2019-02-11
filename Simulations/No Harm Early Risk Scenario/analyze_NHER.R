@@ -1,7 +1,7 @@
 ##########################################################################
 # analyze_data()
 # Description: Function to analyze data with full cohort sampling under
-# No Harm Early Risk assumption set
+# No Early Harm assumption set
 
 analyze_data <- function(data, brange0, brange1, brange2, brange3) {
   ########################################################################
@@ -26,12 +26,12 @@ analyze_data <- function(data, brange0, brange1, brange2, brange3) {
   # risk_0 = P(Y(0) = 1 | Y^tau(0) = Y^tau(1) = 0)
   f1 <- function(x) { sum((1 - Y_tau)*(1 - Z)*(Y - x)) }
   risk_0 <- uniroot(f1, c(0, 1))$root
-  # p(1, 1) = 0 under NHER assumptions
+  # p(1, 1) = 0 under NEH assumptions
   p_11 <- 0
   				
 
   # Estimate risk_0(0, 0), risk_1(0, 0), p(1, 0), and risk_1 using SACE
-  # methods. These are the partially identifiable terms under NHER
+  # methods. These are the partially identifiable terms under NEH
   # Estimate p(1, 0)
   f11 <- function(x) {
     sum((1 - Y_tau)*Z*(1*(!is.na(S_star) & S_star == 1) - x)) /
@@ -206,7 +206,7 @@ analyze_data <- function(data, brange0, brange1, brange2, brange3) {
 ##########################################################################
 # analyze_data_cc()
 # Description: Function to analyze data with case-cohort sampling under
-# No Harm Early Risk assumption set
+# No Early Harm assumption set
 
 analyze_data_cc <- function(data,brange0,brange1,brange2,brange3) {
   ########################################################################
@@ -240,11 +240,11 @@ analyze_data_cc <- function(data,brange0,brange1,brange2,brange3) {
   # risk_0 = P(Y(0) = 1 | Y^tau(0) = Y^tau(1) = 0)
   f1 <- function(x) { sum((1 - Y_tau)*(1 - Z)*(Y - x)) }
   risk_0 <- uniroot(f1, c(0, 1))$root
-  # p(1, 1) = 0 under NHER assumptions
+  # p(1, 1) = 0 under NEH assumptions
   p_11 <- 0
 
   # Estimate risk_0(0, 0), risk_1(0, 0), p(1, 0), and risk_1 using SACE 
-  # methods. These are the partially identifiable terms under NHER
+  # methods. These are the partially identifiable terms under NEH
   # Estimate p(1, 0)
   f11 <- function(x) {
     sum((1 - Y_tau)*Z*(1*(!is.na(S_star) & S_star == 1) - x)*W) /

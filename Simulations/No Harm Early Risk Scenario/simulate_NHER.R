@@ -1,6 +1,6 @@
 ###########################################################################
 # simulate_data() 
-# Description: Function that simulates trial data under No Harm Early Risk
+# Description: Function that simulates trial data under No Early Harm
 # assumption set
 
 simulate_data <- function(Y_tau_probvector, S_star_probvector_ytaueq00,

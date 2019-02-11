@@ -1,4 +1,4 @@
-# Set working directory to "No Harm Early Risk Scenario" folder
+# Set working directory to "No Early Harm Scenario" folder
 rm(list=ls())
 
 nsims <- 20
@@ -8,10 +8,10 @@ library(rootSolve)
 library(numDeriv)
 library(plyr)
 
-source("simulate_NHER.R")
-source("analyze_NHER.R")
-source("low_eefun_NHER.R")
-source("up_eefun_NHER.R")
+source("simulate_NEH.R")
+source("analyze_NEH.R")
+source("low_eefun_NEH.R")
+source("up_eefun_NEH.R")
 source("../../M Estimation Helper Functions/compute.R")
 source("../../M Estimation Helper Functions/utilities.R")
 
