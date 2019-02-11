@@ -62,12 +62,12 @@ simulate_data <- function(Y_tau_probvector, S_star_probvector_ytaueq00,
 	Y_1[index] <- rbinom(length(Y_1[index]), 1, Y_1_probvector[3])
 	Y_0[index] <- rbinom(length(Y_0[index]), 1, Y_0_probvector[3])
 
-	index <- Y_tau_1 == 0 & Y_tau_0 == 1 & S_star_1 == 0 & is.na(S_star_1) == F
-	         & is.na(S_star_0) == T
+	index <- (Y_tau_1 == 0 & Y_tau_0 == 1 & S_star_1 == 0 &
+	          is.na(S_star_1) == F & is.na(S_star_0) == T)
 	Y_1[index] <- rbinom(length(Y_1[index]), 1, Y_1_probvector[1])
 
-	index <- Y_tau_1 == 0 & Y_tau_0 == 1 & S_star_1 == 1 & is.na(S_star_1) == F
-	         & is.na(S_star_0) == T
+	index <- (Y_tau_1 == 0 & Y_tau_0 == 1 & S_star_1 == 1 &
+	          is.na(S_star_1) == F & is.na(S_star_0) == T)
 	Y_1[index] <- rbinom(length(Y_1[index]), 1, Y_1_probvector[3])
 
 	# Observed data (S_star == S^tau in manuscript)

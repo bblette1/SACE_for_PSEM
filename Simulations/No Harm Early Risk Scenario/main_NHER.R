@@ -1,7 +1,7 @@
 # Set working directory to "No Harm Early Risk Scenario" folder
 rm(list=ls())
 
-nsims <- 2000
+nsims <- 20
 set.seed(1234)
 
 library(rootSolve)
@@ -34,8 +34,6 @@ for (casecohort in c(0.1, 0.25, 1)){
 # 1 CEP_l, 2 sigma^2_l, 3 CEP_u, 4 sigma^2_u
 # 5 EUI lower limit, 6 EUI upper limit
 results <- array(NA,dim=c(3,3,length(varyingprobs1),nsims,6))
-#biascheck <- array(NA,dim=c(length(varyingprobs1),nsims,20))
-###testvec <- array(NA,dim=c(length(varyingprobs1),nsims))
 
 # Sim across sensitivity parameter ranges
 for (h in 1:3) {
@@ -81,17 +79,17 @@ for (h in 1:3) {
         # Get point estimates if full cohort and prepare data for
         # variance estimation
     	  if (casecohort == 1) {
-      	 	ad <- analyze_data_C(data = observed_data, brange0 = beta0range,
-      	 	                     brange1 = beta1range, brange2 = beta2range,
-      	 	                     brange3 = beta3range)
+      	 	ad <- analyze_data(data = observed_data, brange0 = beta0range,
+      	 	                   brange1 = beta1range, brange2 = beta2range,
+      	 	                   brange3 = beta3range)
       	 	# Specify positions of output vector from analyze_data()
       	 	# that correspond to items in estimating equation vector
       		thetahat_low_C <- as.numeric(c(ad[1:5], ad[8:9], ad[12:15],
       		                               ad[18:24], ad[27]))
       		thetahat_up_C <- as.numeric(c(ad[1:5], ad[10:17], ad[20:22],
       		                              ad[25:26], ad[28]))
-      		low_fun <- ScenarioC_low_eefun
-      		up_fun <- ScenarioC_up_eefun
+      		low_fun <- low_eefun
+      		up_fun <- up_eefun
       		observed_data_wide <- count(observed_data,
       		                            c('Y', 'Z', 'Y_tau', 'S_star'))
       		observed_data_wide$Group <- 1:nrow(observed_data_wide)
@@ -104,7 +102,7 @@ for (h in 1:3) {
     	  	observed_data$R <- 1*!is.na(observed_data$S_star)
     	  	# set S_star to zero instead of NA
     	  	observed_data$S_star[observed_data$R == 0] <- 0
-      	 	ad <- analyze_data_C_cc(data = observed_data,
+      	 	ad <- analyze_data_cc(data = observed_data,
       	 	                        brange0 = beta0range,
       	 	                        brange1 = beta1range,
       	 	                        brange2 = beta2range,
@@ -113,8 +111,8 @@ for (h in 1:3) {
       		                               ad[18:24], ad[27], ad[29]))
       		thetahat_up_C <- as.numeric(c(ad[1:5], ad[10:17], ad[20:22],
       		                              ad[25:26], ad[28:29]))		
-      		low_fun <- ScenarioC_low_eefun_cc
-      		up_fun <- ScenarioC_up_eefun_cc
+      		low_fun <- low_eefun_cc
+      		up_fun <- up_eefun_cc
       		observed_data_wide <- count(observed_data,
       		                            c('Y', 'Z', 'Y_tau', 'S_star', 'R'))
       		observed_data_wide$Group <- 1:nrow(observed_data_wide)
