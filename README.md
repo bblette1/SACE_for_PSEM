@@ -17,6 +17,6 @@ Application:
 
 ### Using methods on other data
 
-* Think about which assumptions your data meet and run analyze_NEE.R, analyze_NEH.R, or analyze_NEB.R to obtain point estimates and ignorance intervals
+* Think about which assumptions your data meet and run analyze_NEE.R, analyze_NEH.R, or analyze_NEB_app.R to obtain point estimates and ignorance intervals
 
 * To obtain EUIs, use output from above and run code chunks labeled as variance estimation in main_NEE.R, main_NEH.R, or (for NEB) main_app.R
