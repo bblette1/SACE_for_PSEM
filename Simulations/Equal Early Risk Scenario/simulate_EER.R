@@ -1,6 +1,6 @@
 ###########################################################################
 # simulate_data() 
-# Description: Function that simulates trial data under Equal Early Risk
+# Description: Function that simulates trial data under No Early Effect
 # assumption set
 
 simulate_data <- function(Y_tau_probvector, S_star_probvector_ytau0eq1,

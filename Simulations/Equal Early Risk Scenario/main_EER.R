@@ -1,4 +1,4 @@
-# Set working directory to "Equal Early Risk Scenario" folder
+# Set working directory to "No Early Effect Scenario" folder
 rm(list=ls())
 
 nsims <- 2000
@@ -8,10 +8,10 @@ library(rootSolve)
 library(numDeriv)
 library(plyr)
 
-source("simulate_EER.R")
-source("analyze_EER.R")
-source("low_eefun_EER.R")
-source("up_eefun_EER.R")
+source("simulate_NEE.R")
+source("analyze_NEE.R")
+source("low_eefun_NEE.R")
+source("up_eefun_NEE.R")
 source("../../M Estimation Helper Functions/compute.R")
 source("../../M Estimation Helper Functions/utilities.R")
 

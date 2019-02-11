@@ -1,8 +1,8 @@
-# Make plots in EER Simulations in manuscript
+# Make plots in NEE Simulations in manuscript
 rm(list=ls())
 
 # Set working directory to where results are saved
-# Change names of files loaded to match number of sims run in main_EER.R
+# Change names of files loaded to match number of sims run in main_NEE.R
 
 # Load simulation results
 load("results2000sims.0.1cc.Rdata"); results.0.1cc <- results; rm(results)
@@ -42,7 +42,7 @@ maketitle <- function(h, i) {
 ############################################################################################################3
 
 # Power plot
-pdf("Power_EER.pdf")
+pdf("Power_NEE.pdf")
 par(mfrow=c(3, 4))
 
 for (h in 1:3) {
@@ -97,7 +97,7 @@ dev.off()
 ###########################################################################################################
 
 # EUI width plot
-pdf("EUI_EER.pdf")
+pdf("EUI_NEE.pdf")
 par(mfrow=c(3, 4))
 
 for (h in 1:3) {
@@ -149,7 +149,7 @@ dev.off()
 ###########################################################################################################
 
 # Coverage plot
-pdf("Coverage_EER.pdf")
+pdf("Coverage_NEE.pdf")
 par(mfrow=c(3, 4))
 
 for (h in 1:3) {
@@ -204,7 +204,7 @@ dev.off()
 ###########################################################################################################
 
 # Bias plot
-pdf("Bias_EER.pdf")
+pdf("Bias_NEE.pdf")
 par(mfrow=c(3, 4))
 
 for (h in 1:3) {
@@ -262,7 +262,7 @@ dev.off()
 ###########################################################################################################
 
 # SE plot
-pdf("SE_EER.pdf")
+pdf("SE_NEE.pdf")
 par(mfrow=c(3, 4))
 
 for (h in 1:3) {
