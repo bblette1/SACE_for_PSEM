@@ -229,9 +229,9 @@ for (i in 1:3) {
   } 
 }
 
-source("analyze_B_VE0_app.R")
-source("low_eefun_B_VE0_app.R")
-source("up_eefun_B_VE0_app.R")
+source("analyze_NEE_VE0_app.R")
+source("low_eefun_NEE_VE0_app.R")
+source("up_eefun_NEE_VE0_app.R")
 
 for (i in 1:3) {
   for (j in 1:3) {
