@@ -41,9 +41,9 @@ markerslabel <- "S1 = CD8 Env Polyfunctionality Score, S2 = IgG Env, S3 = High o
 brange_list <- c(0,0.5,1)
 
 # Use a CEP surface equal to VE (original code):
-contrast <- "logRR"
+#contrast <- "VE"
 # Try it with a log RR contrast:
-# contrast <- "logRR"
+contrast <- "logRR"
 
 # This code analyzes the 3 markers using the scenario B and C methods in the manuscript
 for (i in 1:3) {
@@ -294,7 +294,8 @@ for (i in 1:3) {
 }
 
 # Produce figure
-pdf("plot505AbCD8VEscale.pdf")
+if (contrast !="logRR") {
+pdf("plot505AbCD8VEscale.pdf") }
 if (contrast=="logRR") {
 pdf("plot505AbCD8logRRtransformedbacktoVEscale.pdf") }
 par(mfrow=c(2,3),cex.axis=1.4,cex.lab=1.2,cex.main=1.4,cex.legend=1.4,oma=c(0,1,0,0),las=1)
