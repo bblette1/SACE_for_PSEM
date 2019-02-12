@@ -22,7 +22,7 @@ analyze_data <- function(data, brange) {
   S_0 <- (1 - Y_tau)*(1 - S_star)
   S_1 <- (1 - Y_tau)*S_star
         
-  # Estimate identifiable parameters risk_z, p_00, p_10, and p_11
+  # Estimate identifiable parameters risk_z, p(0, 0), p(1, 0), and p(1, 1)
   # risk_0 = P(Y(0) = 1 | Y^tau(0) = Y^tau(1) = 0)
   f1 <- function(x) { sum((1 - Y_tau)*(1 - Z)*(Y - x)) }
   risk_0 <- uniroot(f1, c(0, 1))$root	
@@ -107,7 +107,7 @@ analyze_data_cc <- function(data, brange) {
   S_0 <- (1 - Y_tau)*(1 - S_star)
   S_1 <- (1 - Y_tau)*S_star
         
-  # Estimate identifiable parameters risk_z, p_00, p_10, and p_11
+  # Estimate identifiable parameters risk_z, p(0, 0), p(1, 0), and p(1, 1)
   # risk_0 = P(Y(0) = 1 | Y^tau(0) = Y^tau(1) = 0)
   f1 <- function(x) { sum((1 - Y_tau)*(1 - Z)*(Y - x)) }
   risk_0 <- uniroot(f1,c(0,1))$root	
