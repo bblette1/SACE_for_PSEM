@@ -32,7 +32,7 @@ analyze_data_NEB <- function(data, S_star_choice, brange,
   Y_tau <- data$Y_tau
   S_star <- data[ , S_star_choice]
   R <- data$R
-  S_star[R == 0] <- 0
+  S_star[is.na(S_star)] <- 0
   brange0 <- brange1 <- brange
   
   # Estimate probability control has S_star observed: P(R = 1 | Y = 0)
