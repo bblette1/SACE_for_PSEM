@@ -33,7 +33,6 @@ analyze_data_NEE <- function(data, S_star_choice, brange,
   S_star <- data[ , S_star_choice]
   R <- data$R
   S_star[R == 0] <- 0
-  brange0 <- brange
 
   # Estimate probability control has S_star observed: P(R = 1 | Y = 0)
   f0 <- function(x) { sum((1 - Y)*(R - x)) }
