@@ -1,10 +1,10 @@
 low_eefun_NEE_VE1_cc <- function(data, beta0range, contrast) {
   
   function(theta) {
-    with(data, c( (1-Ytau)*(1-Z)*(Y-theta[1]),						                              # risk_0 = theta[1]
-                  (1-Ytau)*S_star*Z*(1/theta[8]*(1-Y)*R+Y)*(Y-theta[2]),							  # risk_1_10 = theta[2]
-                  (1-Ytau)*Z*(1/theta[8]*(1-Y)*R+Y)*(1-S_star-theta[3]),		            # p_00 = theta[3]
-                  Z*(1-Ytau)*(1-S_star)*(1/theta[8]*(1-Y)*R+Y)*(Y-theta[4]), 		        # risk_1_00 = theta[4]
+    with(data, c( (1-Y_tau)*(1-Z)*(Y-theta[1]),						                              # risk_0 = theta[1]
+                  (1-Y_tau)*S_star*Z*(1/theta[8]*(1-Y)*R+Y)*(Y-theta[2]),							  # risk_1_10 = theta[2]
+                  (1-Y_tau)*Z*(1/theta[8]*(1-Y)*R+Y)*(1-S_star-theta[3]),		            # p_00 = theta[3]
+                  Z*(1-Y_tau)*(1-S_star)*(1/theta[8]*(1-Y)*R+Y)*(Y-theta[4]), 		        # risk_1_00 = theta[4]
                   theta[1] - theta[5]*theta[3] - theta[6]*(1-theta[3]),			            # risk_0_00 = theta[5] 
                   exp(min(beta0range))*theta[6]/(1-theta[6]) - theta[5]/(1-theta[5]),   # risk_0_10 = theta[6]
                   ( theta[7] - (1- theta[2]/theta[6]) )*(contrast == "VE") +
