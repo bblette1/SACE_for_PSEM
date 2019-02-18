@@ -545,13 +545,13 @@ library(rootSolve)
 library(numDeriv)
 library(plyr)
 
-source("analyze_B_app.R")
-source("low_eefun_B_app.R")
-source("up_eefun_B_app.R")
+source("analyze_NEE_app.R")
+source("low_eefun_NEE_app.R")
+source("up_eefun_NEE_app.R")
 
-source("analyze_C_app.R")
-source("low_eefun_C_app.R")
-source("up_eefun_C_app.R")
+source("analyze_NEB_app.R")
+source("low_eefun_NEB_app.R")
+source("up_eefun_NEB_app.R")
 
 source("../M Estimation Helper Functions/compute.R")
 source("../M Estimation Helper Functions/utilities.R")
@@ -588,7 +588,7 @@ contrast <- "logRR"
 
 brange_list <- c(0,0.5,1)
 
-# This code analyzes the 3 markers using the scenario B and C methods in the manuscript
+# This code analyzes the 3 markers using the scenario NEE and NEB methods in the manuscript
 for (i in 1:3) {
   for (j in 1:3) {
 
@@ -708,9 +708,9 @@ for (i in 1:3) {
   } 
 }
 
-source("analyze_B_VE1_app.R")
-source("low_eefun_B_VE1_app.R")
-source("up_eefun_B_VE1_app.R")
+source("analyze_NEE_VE1_app.R")
+source("low_eefun_NEE_VE1_app.R")
+source("up_eefun_NEE_VE1_app.R")
 
 results_B_VE1 <- array(NA,dim=c(3,3,6))
 results_B_VE0 <- array(NA,dim=c(3,3,6))
@@ -781,9 +781,9 @@ for (i in 1:3) {
   } 
 }
 
-source("analyze_B_VE0_app.R")
-source("low_eefun_B_VE0_app.R")
-source("up_eefun_B_VE0_app.R")
+source("analyze_NEE_VE0_app.R")
+source("low_eefun_NEE_VE0_app.R")
+source("up_eefun_NEE_VE0_app.R")
 
 for (i in 1:3) {
   for (j in 1:3) {
