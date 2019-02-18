@@ -1,4 +1,4 @@
-analyze_data_NEE_VE0 <- function(data,S_star_choice,beta,contrast="logRR") {
+analyze_data_B <- function(data,S_star_choice,beta,contrast) {
 
   h <- function(x,y) {
     ans <- log(x) - log(y)
@@ -9,10 +9,10 @@ analyze_data_NEE_VE0 <- function(data,S_star_choice,beta,contrast="logRR") {
   
   Z <- data$Z
   Y <- data$Y
-  Y_tau <- data$Y_tau
+  Y_tau <- data$Ytau
   S_star <- data[,S_star_choice]
   R <- data$R
-  S_star[is.na(S_star)] <- 0
+  S_star[R==0] <- 0
   brange <- c(-beta,beta)
   
   # estimate probability control has S_star observed
@@ -21,6 +21,15 @@ analyze_data_NEE_VE0 <- function(data,S_star_choice,beta,contrast="logRR") {
 
   W <- 1/pi_hat*(1-Y)*R + Y	# weights
 
+  keep <- data$R==0 | (data$R==1 & !is.na(S_star))
+  Z <- Z[keep]
+  Y <- Y[keep]
+  Y_tau <- Y_tau[keep]
+  S_star <- S_star[keep]
+  R <- R[keep]
+  W <- W[keep]
+  
+  S_star[R==0] <- 0
   S_0 <- (1 - Y_tau)*(1 - S_star)
   S_1 <- (1 - Y_tau)*S_star
         
