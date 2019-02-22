@@ -10,13 +10,15 @@ library(rootSolve)
 library(numDeriv)
 library(plyr)
 
-source("analyze_NEE_app.R")
-source("low_eefun_NEE_app.R")
-source("up_eefun_NEE_app.R")
+# Set working directory to "SACE_for_PSEM/Application"
 
-source("analyze_NEB_app.R")
-source("low_eefun_NEB_app.R")
-source("up_eefun_NEB_app.R")
+source("No Early Effects Scenario/analyze_NEE_app.R")
+source("No Early Effects Scenario/low_eefun_NEE_app.R")
+source("No Early Effects Scenario/up_eefun_NEE_app.R")
+
+source("No Early Benefit Scenario/analyze_NEB_app.R")
+source("No Early Benefit Scenario/low_eefun_NEB_app.R")
+source("No Early Benefit Scenario/up_eefun_NEB_app.R")
 
 source("../M Estimation Helper Functions/compute.R")
 source("../M Estimation Helper Functions/utilities.R")
@@ -177,9 +179,9 @@ cat(paste("One i,j=",i,j),"\n")
   } 
 }
 
-source("analyze_NEE_VE1_app.R")
-source("low_eefun_NEE_VE1_app.R")
-source("up_eefun_NEE_VE1_app.R")
+source("No Early Effects Scenario/analyze_NEE_VE1_app.R")
+source("No Early Effects Scenario/low_eefun_NEE_VE1_app.R")
+source("No Early Effects Scenario/up_eefun_NEE_VE1_app.R")
 
 results_B_VE1 <- array(NA,dim=c(3,3,6))
 results_B_VE0 <- array(NA,dim=c(3,3,6))
@@ -250,9 +252,9 @@ cat(paste("Two i,j=",i,j),"\n")
   } 
 }
 
-source("analyze_NEE_VE0_app.R")
-source("low_eefun_NEE_VE0_app.R")
-source("up_eefun_NEE_VE0_app.R")
+source("No Early Effects Scenario/analyze_NEE_VE0_app.R")
+source("No Early Effects Scenario/low_eefun_NEE_VE0_app.R")
+source("No Early Effects Scenario/up_eefun_NEE_VE0_app.R")
 
 
 for (i in 1:3) {
@@ -545,13 +547,13 @@ library(rootSolve)
 library(numDeriv)
 library(plyr)
 
-source("analyze_NEE_app.R")
-source("low_eefun_NEE_app.R")
-source("up_eefun_NEE_app.R")
+source("No Early Effects Scenario/analyze_NEE_app.R")
+source("No Early Effects Scenario/low_eefun_NEE_app.R")
+source("No Early Effects Scenario/up_eefun_NEE_app.R")
 
-source("analyze_NEB_app.R")
-source("low_eefun_NEB_app.R")
-source("up_eefun_NEB_app.R")
+source("No Early Benefit Scenario/analyze_NEB_app.R")
+source("No Early Benefit Scenario/low_eefun_NEB_app.R")
+source("No Early Benefit Scenario/up_eefun_NEB_app.R")
 
 source("../M Estimation Helper Functions/compute.R")
 source("../M Estimation Helper Functions/utilities.R")
@@ -708,9 +710,9 @@ for (i in 1:3) {
   } 
 }
 
-source("analyze_NEE_VE1_app.R")
-source("low_eefun_NEE_VE1_app.R")
-source("up_eefun_NEE_VE1_app.R")
+source("No Early Effects Scenario/analyze_NEE_VE1_app.R")
+source("No Early Effects Scenario/low_eefun_NEE_VE1_app.R")
+source("No Early Effects Scenario/up_eefun_NEE_VE1_app.R")
 
 results_B_VE1 <- array(NA,dim=c(3,3,6))
 results_B_VE0 <- array(NA,dim=c(3,3,6))
@@ -781,9 +783,9 @@ for (i in 1:3) {
   } 
 }
 
-source("analyze_NEE_VE0_app.R")
-source("low_eefun_NEE_VE0_app.R")
-source("up_eefun_NEE_VE0_app.R")
+source("No Early Effects Scenario/analyze_NEE_VE0_app.R")
+source("No Early Effects Scenario/low_eefun_NEE_VE0_app.R")
+source("No Early Effects Scenario/up_eefun_NEE_VE0_app.R")
 
 for (i in 1:3) {
   for (j in 1:3) {
