@@ -1,4 +1,21 @@
+##########################################################################
+# analyze_data_C()
+# Description: Function to analyze data with case cohort sampling under
+# No Early Benefit assumption set for HVTN505 application
+
 analyze_data_C <- function(data,S_star_choice,beta,contrast="logRR") {
+  ########################################################################
+  # Arguments:
+  #      data: data frame containing the following variables
+  #               Z     : indicator of treatment
+  #               Y     : indicator of outcome
+  #               Y_tau : indicator of early outcome
+  #               S_star: one or more intermediate biomarker values
+  #               R     : indicator of measurement of intermediate biomarker
+  #   S_star_choice: column number specifying biomarker of interest in data
+  #      beta: value specifying lower and upper 
+  #            bounds of the range of the sensitivity parameter 
+  #  contrast: contrast scale for final estimate (logRR, VE, or Difference)
 
   h <- function(x,y) {
   ans <- log(x) - log(y)
